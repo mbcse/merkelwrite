@@ -57,16 +57,6 @@ YouTube 👉 [https://youtu.be/G5iL6iS-axk](https://youtu.be/G5iL6iS-axk)
 PPT 👉 [Presentation](https://www.canva.com/design/DAEThbyBQbM/L5MBeaH9wAyJgSb7dy-ZtA/view?utm_content=DAEThbyBQbM&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
 
 
-<img src="https://github.com/mbcse/Bedium_DecentralisedBlogging/blob/master/screenshots/indexpage.png" width="200">
-<img src="https://github.com/mbcse/Bedium_DecentralisedBlogging/blob/master/screenshots/blogcontentpage.png" width="200">
-<img src="https://github.com/mbcse/Bedium_DecentralisedBlogging/blob/master/screenshots/getpaid.png" width="200">
-<img src="https://github.com/mbcse/Bedium_DecentralisedBlogging/blob/master/screenshots/profile2.png" width="200">
-<img src="https://github.com/mbcse/Bedium_DecentralisedBlogging/blob/master/screenshots/subscribing.png" width="200">
-<img src="https://github.com/mbcse/Bedium_DecentralisedBlogging/blob/master/screenshots/subscriptiondetails.png" width="200">
-<img src="https://github.com/mbcse/Bedium_DecentralisedBlogging/blob/master/screenshots/susbscibedai.png" width="200">
-<img src="https://github.com/mbcse/Bedium_DecentralisedBlogging/blob/master/screenshots/transfersubscription.png" width="200">
-<img src="https://github.com/mbcse/Bedium_DecentralisedBlogging/blob/master/screenshots/updateprofile.png" width="200">
-<img src="https://github.com/mbcse/Bedium_DecentralisedBlogging/blob/master/screenshots/write.png" width="200">
 
 
 **Hola! Decentralized Blogging started**<br>
