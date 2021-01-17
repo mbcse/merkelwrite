@@ -50,7 +50,7 @@ The Best part Is All is Decentralized**
 
 
 ## Project Demo/Links
-Website 👉 [https://merkelwrite.herokuapp.com/](https://merkelwrite.herokuapp.com/)
+Website 👉 [https://merklewrite.herokuapp.com/](https://merkelwrite.herokuapp.com/)
 
 YouTube 👉 [https://youtu.be/G5iL6iS-axk](https://youtu.be/G5iL6iS-axk)
 
