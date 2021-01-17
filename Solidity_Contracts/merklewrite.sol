@@ -24,7 +24,7 @@ interface CompoundErc20 {
 
 
 
-contract bedium{
+contract merklewrite{
     
     daiErc20 dai=daiErc20(0xfe4F5145f6e09952a5ba9e956ED0C25e3Fa4c7F1);
     CompoundErc20 compound=CompoundErc20(0x822397d9a55d0fefd20F5c4bCaB33C5F65bd28Eb);
