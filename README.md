@@ -50,7 +50,7 @@ The Best part Is All is Decentralized**
 
 
 ## Project Demo/Links
-Website 👉 [https://merklewrite.herokuapp.com/](https://merkelwrite.herokuapp.com/)
+Website 👉 [https://merklewrite.herokuapp.com/](https://merklewrite.herokuapp.com/)
 
 YouTube 👉 [https://youtu.be/G5iL6iS-axk](https://youtu.be/G5iL6iS-axk)
 
@@ -58,11 +58,10 @@ PPT 👉 [Presentation](https://www.canva.com/design/DAEThbyBQbM/L5MBeaH9wAyJgSb
 
 
 
-
 **Hola! Decentralized Blogging started**<br>
 **Deployed On Matic Mumbai Testnet**<br>
 **Wallet Support by Portis**<br>
-**LIVE WEBSITE LINK: https://merkelwrite.herokuapp.com/**<br>
+**LIVE WEBSITE LINK: https://merklewrite.herokuapp.com/**<br>
 **IPFS Accessed through Infura**<br>
 Made By Mohit Bhat(https://www.mbcse.tech)
 
