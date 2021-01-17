@@ -1,4 +1,4 @@
-# Merkle Write
+# MerkleWrite
 ## About
 This is Decentralized content sharing platform made on top of ipfs, Defi and Ethereum. Nowdays content creation is centralised and are subject to changes or partiality by the site owners. To support the content creators and provide them with equal rights and profits, **merkleWrite is made!**
 
@@ -10,6 +10,7 @@ The Best part Is All is Decentralized**
 - Matic Network
 - Portis
 - Metamask
+- DEFI
 - Dai Stable coin
 - Compound
 - Ipfs
@@ -21,6 +22,7 @@ The Best part Is All is Decentralized**
 - HTML/CSS
 - Boostrap
 - Javascript
+- MONGODB
 
 ## Features
 ### User can write blog(MarkDown Supported)
@@ -46,6 +48,15 @@ The Best part Is All is Decentralized**
 - Run **npm start**
 - Head to http://127.0.0.1:5000/
 
+
+## Project Demo/Links
+Website 👉 [https://merkelwrite.herokuapp.com/](https://merkelwrite.herokuapp.com/)
+
+YouTube 👉 [https://youtu.be/G5iL6iS-axk](https://youtu.be/G5iL6iS-axk)
+
+PPT 👉 [Presentation](https://www.canva.com/design/DAEThbyBQbM/L5MBeaH9wAyJgSb7dy-ZtA/view?utm_content=DAEThbyBQbM&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
+
+
 <img src="https://github.com/mbcse/Bedium_DecentralisedBlogging/blob/master/screenshots/indexpage.png" width="200">
 <img src="https://github.com/mbcse/Bedium_DecentralisedBlogging/blob/master/screenshots/blogcontentpage.png" width="200">
 <img src="https://github.com/mbcse/Bedium_DecentralisedBlogging/blob/master/screenshots/getpaid.png" width="200">
@@ -61,7 +72,7 @@ The Best part Is All is Decentralized**
 **Hola! Decentralized Blogging started**<br>
 **Deployed On Matic Mumbai Testnet**<br>
 **Wallet Support by Portis**<br>
-**LIVE WEBSITE LINK: https://merkleWrite.herokuapp.com/**<br>
+**LIVE WEBSITE LINK: https://merkelwrite.herokuapp.com/**<br>
 **IPFS Accessed through Infura**<br>
 Made By Mohit Bhat(https://www.mbcse.tech)
 
