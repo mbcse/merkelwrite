@@ -9,7 +9,6 @@ The Best part Is All is Decentralized**
 - Ethereum
 - Matic Network
 - Portis
-- Metamask
 - DEFI
 - Dai Stable coin
 - Compound
