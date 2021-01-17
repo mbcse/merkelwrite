@@ -22,10 +22,10 @@
 	<link href="layout-1/css/styles.css" rel="stylesheet">
 
   <link href="layout-1/css/responsive.css" rel="stylesheet">
-
+	<link href="/mycss.css" rel="stylesheet">
 
   <script src="https://cdn.jsdelivr.net/npm/@portis/web3@3.0.2/umd/index.js"></script>
-  <script src="common-js/jquery-3.1.1.min.js"></script>
+  <script src="/common-js/jquery-3.1.1.min.js"></script>
   <script src="https://unpkg.com/ipfs-api@9.0.0/dist/index.js"
   integrity="sha384-5bXRcW9kyxxnSMbOoHzraqa7Z0PQWIao+cgeg327zit1hz5LZCEbIMx/LWKPReuB"
   crossorigin="anonymous"></script> 
@@ -164,6 +164,33 @@
     </style>
 </head>
 <body >
+
+  <div id="loader" class="text-white text-center">
+		<h2>Connecting You to Merkle Write</h2>
+		<h4>Deployed on MATIC, Powered By PORTIS</h4>
+		<br>
+		<h4 id="msg"></h4>
+	  </div> 
+
+	    <!-- General Modal -->
+<div id="generalMsgModal" class="modal fade" style="z-index: 999999;">
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header justify-content-center">
+				<div class="icon-box">
+					<i class="material-icons">&#xE5CD;</i>
+				</div>
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			</div>
+			<div class="modal-body text-center">
+				<h4>Ooops!</h4>	
+				<p id="generalModalMessage">Error!!!!</p>
+				<!-- <button class="btn btn-success" data-dismiss="modal">Try Again</button> -->
+			</div>
+		</div>
+	</div>
+</div>   
+
     	  <!-- Modal -->
 	  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
@@ -524,11 +551,11 @@
 
 	<!-- SCIPTS -->
 
-	<script src="common-js/jquery-3.1.1.min.js"></script>
-	<script src="common-js/tether.min.js"></script>
-	<script src="common-js/bootstrap.js"></script>
+	<script src="/common-js/jquery-3.1.1.min.js"></script>
+	<script src="/common-js/tether.min.js"></script>
+	<script src="/common-js/bootstrap.js"></script>
   <script src="https://bundle.run/buffer@5.2.1"></script>
-	<script src="common-js/scripts.js"></script>
+	<script src="/common-js/scripts.js"></script>
 	
 	
 	<script>

@@ -104,6 +104,7 @@ app.post("/gethash", documentupload.single("file"), (req, res) => {
 app.get("/viewpost/:id/:hash", (req, res) => {
   console.log(req.params.id);
   console.log(req.params.hash);
+  console.log(req.params);
   var content = "";
   ipfs.files.get(req.params.hash, function (err, files) {
     if (err) throw err;
@@ -132,9 +133,15 @@ app.get("/seeprofile", (req, res) => {
 
 app.get("/like/:address", async(req, res) => {
   var id = req.params.address;
-  var user=await likedb.find({address:id});
+  var user=await likedb.findOne({address:id});
+  console.log(user);
+  if(user.length==0){
+    var newuser= new likedb({address:id,likes:1});
+    await newuser.save();
+  }else{
   user.likes+=1;
-  await user,save();
+  await user.save();
+  }
   res.json({status:true});
   // con.query(
   //   "insert into like_data values(?,?) ON DUPLICATE KEY UPDATE likes = likes + 1; ",

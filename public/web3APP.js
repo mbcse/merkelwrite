@@ -1,5 +1,18 @@
 const portis = new Portis('880e94d6-4279-402a-8ce8-ade1a5059ad8', 'maticMumbai');
 App={
+	loading:false,
+	setLoading: (boolean) => {
+        App.loading = boolean;
+        const loader = $("#loader");
+        const content = $("#content");
+        if (boolean) {
+          loader.show();
+          // content.hide();
+        } else {
+          loader.hide();
+          // content.show();
+        }
+    },
 	loadWeb3:async()=>{
 		// if (window.ethereum) {
 		// 	console.log("Metamask Detected");
@@ -455,7 +468,7 @@ App={
 													  <h4 class="title"><a href="/viewpost/`+result[0]+`/`+result[2]+`"><b>`+result[4]+`</b></a></h4>
   
 													  <ul class="post-footer">
-														  <li><a href="#likess"><i class="ion-heart"></i>`+httpGetLikes("/getlikecount/"+result[1]).likes+`</a></li>
+														  <li><a href="#likess"><i class="ion-heart"></i>`+(httpGetLikes("/getlikecount/"+result[1]).likes|| 0)+`</a></li>
 														  <li><a href="#"><i class="ion-chatbubble"></i>6</a></li>
 														  <li><a href="#"><i class="ion-eye"></i>138</a></li>
 													  </ul>
@@ -516,7 +529,7 @@ App={
 													  <h4 class="title"><a href="/viewpost/`+result[0]+`/`+result[2]+`"><b>`+result[4]+`</b></a></h4>
   
 													  <ul class="post-footer">
-														  <li><a href="#"><i class="ion-heart"></i>`+httpGetLikes("/getlikecount/"+App.userAccount)+`</a></li>
+														  <li><a href="#"><i class="ion-heart"></i>`+(httpGetLikes("/getlikecount/"+App.userAccount)||0)+`</a></li>
 														  <li><a href="#"><i class="ion-chatbubble"></i>6</a></li>
 														  <li><a href="#"><i class="ion-eye"></i>138</a></li>
 													  </ul>
@@ -873,189 +886,7 @@ App={
 		}
 	},
 	codeOpenPost:async()=>{
-		var messagediv=document.getElementById('message');
-	var barContainer=document.getElementById('statusBar');
-            barContainer.style.display="none";
 
-            var statusText=document.getElementById('proStatus');
-            var probarDiv=document.getElementById('progressBar');
-            var statusShowValue=document.getElementById('barStatusValue');
-            var statusValue=0;
-
-            var putStatusValue=function(val,text){
-                proStatus.innerHTML=text;
-                statusShowValue.innerHTML=val+"%";
-                probarDiv.style.width=val+"%";  
-            }
-            var progressInterval;
-            var updatebar=function(){
-                            if(statusValue>=0 && statusValue<10){
-                            putStatusValue(statusValue, "Please Approve Spending of 1 Dai");
-                            }
-                            else if(statusValue>=10 && statusValue <40){
-                                putStatusValue(statusValue, "Processing");
-                            } 
-
-                            else if(statusValue>=40 && statusValue <60){
-                                putStatusValue(statusValue, "Sending Dai, Please Approve");
-							}
-							else if(statusValue>=60 && statusValue <80){
-                                putStatusValue(statusValue, "Thankyou! Transfering Dai");
-                            }
-
-                            else if(statusValue>=80 && statusValue <=95){
-                                putStatusValue(statusValue,"Completing Transaction, Please Approve");
-                            }
-                            else{
-                                //putStatusValue(100,"Done! Thankyou For Subscribing!!");
-                                clearInterval(progressInterval);
-                            }
-
-                            statusValue++;
-
-            }
-
-            var startUpload=function(){
-					barContainer.style.display="block";   
-					messagediv.style.display="none";           
-                    progressInterval = setInterval(updatebar, 1500);
-                    
-                }
-
-//***************************************************************************************************************************
-	
-
-
-	var postAuthorAddress;
-
-	var authorname=document.getElementById('authorname');
-	var authoraddress=document.getElementById('authoraddress');
-
-	var imageDOM=document.getElementsByClassName('slider');
-	console.log(imageDOM);
-	var contentDOM=document.getElementById('markcontent');
-	var titleDOM=document.getElementById('title');
-	App.bediumContract.methods.checkSubscribed().call({from:App.userAccount},(err,status)=>{
-		    
-			App.bediumContract.methods.CheckAuthorOwner(id).call({from:App.userAccount},(err,resu)=>{
-				console.log(resu);
-					console.log(status);
-					if(status || resu){
-						App.bediumContract.methods.getPost(id).call({from:App.userAccount},(err,postDetails)=>{
-							
-							contentDOM.innerHTML=marked(content);
-							imageDOM[0].style.backgroundImage='url("https://gateway.ipfs.io/ipfs/'+postDetails[3]+'")';
-							titleDOM.innerHTML=postDetails[4];
-							authoraddress.innerHTML=postDetails[1];
-							postAuthorAddress=postDetails[1];
-							document.getElementById('likebtnvalue').innerHTML=httpGetLikes("/getlikecount/"+postDetails[1]);
-							authorname.innerHTML=postDetails[5];
-							document.getElementById('seeprofilelink').href="/seeprofile?address="+postDetails[1];   
-							App.bediumContract.methods.getUserDetails(postDetails[1]).call({from:App.userAccount},(err,user)=>{
-								document.getElementById('profileImage').src="https://gateway.ipfs.io/ipfs/"+user[1]; 
-								           
-							});
-
-							
-						});
-					}
-					else{
-						$('#exampleModal').modal('show');
-						
-						document.getElementById('subscribe').addEventListener('click',()=>{
-														
-							startUpload();
-							App.daiContract.methods.approve(App.bediumAddress,'1000000000000000000').send({from:App.userAccount},(err,txh)=>{
-								if(err)
-									alert("Something went wrong Try Again");  
-								statusValue=11;
-								putStatusValue(statusValue,"Thankyou!");	  
-							    }).on('receipt',(rc)=>{
-									                statusValue=41;
-								                    putStatusValue(statusValue,"Sending Dai, Please Approve");
-												App.bediumContract.methods.transferDai('1000000000000000000').send({from:App.userAccount},(err,txh)=>{
-													if(err)
-														alert("Something went wrong Try Again");
-														statusValue=60;
-								                        putStatusValue(statusValue,"Thankyou!");	
-												    }).on('receipt',(rc)=>{		
-														statusValue=80;
-														putStatusValue(statusValue,"Thankyou!");
-														statusValue=100;
-															putStatusValue(statusValue,"Done! Thankyou For Subscribing!!");
-															
-															App.bediumContract.methods.getPost(id).call({from:App.userAccount},(err,postDetails)=>{
-													
-																			contentDOM.innerHTML=marked(content);
-																			imageDOM.src="https://gateway.ipfs.io/ipfs/"+postDetails[3];
-																			titleDOM.innerHTML=postDetails[4];
-																			authoraddress.innerHTML=postDetails[1];
-																			authorname.innerHTML=postDetails[5];
-																			postAuthorAddress=postDetails[1];
-																			document.getElementById('likebtnvalue').innerHTML=httpGetLikes("/getlikecount/"+postDetails[1]);
-																			document.getElementById('seeprofilelink').href="/seeprofile?address="+postDetails[1];  
-																			document.getElementById('headingmessage').innerHTML="Subscribed!";
-																			document.getElementById('close').style.display="block";
-																			document.getElementById('cancel').style.display="none";
-																			document.getElementById('subscribe').style.display="none";
-																			App.bediumContract.methods.getUserDetails(postDetails[1]).call({from:App.userAccount},(err,user)=>{
-																				document.getElementById('profileImage').src="https://gateway.ipfs.io/ipfs/"+user[1];               
-																			});
-
-																			
-															});
-														// App.bediumContract.methods.transferToCompound('1000000000000000000').send({from:App.userAccount},(err,txh)=>{
-														// statusValue=96;
-								                        // putStatusValue(statusValue,"Thankyou! Subscribing You! Please wait...");
-														// }).on('receipt',(rc)=>{
-          
-
-														// });
-													
-													});
-								});
-
-						});
-
-
-
-						document.getElementById('cancel').addEventListener('click',()=>{
-							window.location.href = "/";
-                        });
-	
-					}
-
-			});
-			
-	});
-
-    
-    document.getElementById('likebtn').addEventListener('click',()=>{
-	  $.ajax({
-		  url:"/like/"+postAuthorAddress,
-		  type:"get",
-		  success:(response)=>{
-			  if(response.status){
-				document.getElementById('likebtnvalue').innerHTML=parseInt(document.getElementById('likebtnvalue').innerHTML)+1;
-			  }
-			  else
-			  {
-				 alert("Something went wrong"); 
-			  }
-
-		  }
-
-	  });
-		
-	});
-
-
-function httpGetLikes(theUrl){
-			var xmlHttp = new XMLHttpRequest();
-			xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-			xmlHttp.send( null );
-			return JSON.parse(xmlHttp.responseText).likes;
-	}
 	},
 	codeWritePost:async()=>{
 		var simplemde = new SimpleMDE({ element: document.getElementById("tarea") });
@@ -1154,33 +985,43 @@ document.getElementById('post').addEventListener("click", ()=>{
 		await App.loadWeb3();
 		await App.loadAccount();
 		await App.loadContracts();
+		App.setLoading(true);
 		await App.codeProfile();
+		App.setLoading(false);
 	},
 	loadPublicProfile:async()=>{
 		await App.loadWeb3();
 		await App.loadAccount();
 		await App.loadContracts();
+		App.setLoading(true);
 		await App.codePublicProfile();
+		App.setLoading(false);
 	},
 	loadIndex:async()=>{
 		await App.loadWeb3();
 		await App.loadAccount();
 		await App.loadContracts();
+		App.setLoading(true);
 		await App.codeIndex();
+		App.setLoading(false);
 	},
 	loadWritePost:async()=>{
 		await App.loadWeb3();
 		await App.loadAccount();
 		await App.loadContracts();
+		App.setLoading(true);
 		await App.codeWritePost();
+		App.setLoading(false);
 	},
 	loadOpenPost:async()=>{
 		await App.loadWeb3();
 		await App.loadAccount();
 		await App.loadContracts();
+		App.setLoading(true);
 		await App.codeOpenPost();
+		App.setLoading(false);
 	}
-};App.loa
+};
 
 
 // web3.eth.getAccounts().then((accounts)=>{
